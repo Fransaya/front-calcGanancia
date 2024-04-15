@@ -18,12 +18,12 @@
             <button class="btn-calcular" type="submit">Calcular</button>
           </form>
           <div class="container-precio-envio">
-            <h4>El precio del envio de cada producto fue de: ${{precioEnvioProd}}</h4>
+            <h4>El precio del envio de cada producto es: ${{precioEnvioProd}}</h4>
           </div>
         </div>
         <div class="form-ganancia">
           <form [formGroup]="formGanancia" (submit)="calcGanancia()">
-            <label for="ganaciaEsperada">Ganancia deseada</label>
+            <label for="ganaciaEsperada">Ganancia esperada %</label>
             <input type="number" name="gananciaDeseada" id="ganaciaDeseada" formControlName="gananciaEsperada" class="ganancia" placeholder="Ingrese la ganancia en porcentaje que desee obtener">
             <label for="costototalProdcuto">Costo Total del producto</label>
             <input type="number" name="costototalprod" id="costototal" formControlName="costoTotalProducto" class="costototal" placeholder="Ingrese el costo total del producto">
@@ -32,7 +32,7 @@
             <button type="submit">Calcular Ganancia</button>
           </form>
           <div class="container-precio-producto">
-            <h4>El precio que deberias vender cada producto es de: {{precioProducto}}</h4>
+            <h4>El precio que deberias vender es de: {{precioProducto}}</h4>
           </div>
         </div>
       </div>

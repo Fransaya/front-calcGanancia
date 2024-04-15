@@ -45,13 +45,26 @@ export class AppComponent implements OnInit {
 
     if(totalProductos>=0 && costoTotal >=0){
       this.precioEnvioProd =  costoTotal / totalProductos;
-      console.log("this.", this.precioEnvioProd)
+      this.precioEnvioProd= Math.ceil(this.precioEnvioProd);
     }else{
       Swal.fire("Error", "debe ingresar un costo / total mayor a 0", "error");
     }
   };
 
   public calcGanancia(){
+    let ganaciaEsperada =  this.formGanancia.value.gananciaEsperada;
+    let cantProductos = this.formGanancia.value.cantidadTotalProducto;
+    let precioTotal = this.formGanancia.value.costoTotalProducto;
+    if(ganaciaEsperada>0 && cantProductos>0 && precioTotal>0){
+      let precioXunidad = precioTotal / cantProductos;
+      if(precioXunidad>0){
+        this.precioProducto = (((ganaciaEsperada+100) * (precioXunidad-this.precioEnvioProd)) / 100) ;
+        this.precioProducto = Math.ceil(this.precioProducto)
+      }
+
+    }else{
+      Swal.fire("Error", "debe ingresar un costo / total / ganancia mayor a 0", "error");
+    }
 
   }
 
