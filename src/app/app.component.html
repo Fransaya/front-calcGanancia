@@ -2,38 +2,30 @@
   <section>
     <div class="calcGanancia">
       <div class="container desc">
-        <h1>Calculadora de Gastos / Ganancia </h1>
-        <ul>
-          <li><b>1-</b> Ingrese el costo de envio y la cantidad total de productos para determinar cuanto salio el envio de cada producto</li>
-          <li><b>2-</b> Para determinar la ganancia que quiere sacar por producto: ingrese el costo total del producto y la cantidad de unidades y la ganancia en % que desea sacar.</li>
-        </ul>
+        <h1>Calculadora de Ganancia </h1>
       </div>
       <div class="containers-forms">
         <div class="form-envio">
           <form  [formGroup]="formEnvio" (submit)="calcGastoEnvio()" class="form-envio">
-            <label for="costoEvnio">Costo del envio</label>
-            <input type="number" name="costoEnvio" id="costoEnvio" formControlName="costoTotalEnvios" class="costoEnvio" placeholder="Ingrese el costo total del envio">
+            <label class="block font-bold mb-2" for="currency-us">Costo de envio</label>
+            <p-inputNumber   inputId="currency-us" mode="currency" formControlName="costoTotalEnvios" currency="USD" locale="en-US"> </p-inputNumber>
             <label for="totalProductos">Total de unidades</label>
             <input type="number" name="totalUnidades" id="totalUnidades" formControlName="cantidadTotalProductos" class="totalUnidades" placeholder="Ingrese el total de unidades recibidas">
             <button class="btn-calcular" type="submit">Calcular</button>
           </form>
-          <div class="container-precio-envio">
-            <h4>El precio del envio de cada producto es: ${{precioEnvioProd}}</h4>
-          </div>
         </div>
+
         <div class="form-ganancia">
           <form [formGroup]="formGanancia" (submit)="calcGanancia()">
-            <label for="ganaciaEsperada">Ganancia esperada %</label>
-            <input type="number" name="gananciaDeseada" id="ganaciaDeseada" formControlName="gananciaEsperada" class="ganancia" placeholder="Ingrese la ganancia en porcentaje que desee obtener">
-            <label for="costototalProdcuto">Costo Total del producto</label>
-            <input type="number" name="costototalprod" id="costototal" formControlName="costoTotalProducto" class="costototal" placeholder="Ingrese el costo total del producto">
-            <label for="cantidadtotal">Cantidad de productos</label>
-            <input type="number" name="cantprod" id="cantproductos" formControlName="cantidadTotalProducto" class="cantidadproductos" placeholder="Ingrese la cantidad total de productos">
-            <button type="submit">Calcular Ganancia</button>
+            <label for="ganaciaEsperada">Ganancia esperada </label>
+            <p-inputNumber  inputId="percent" prefix="%" formControlName="gananciaEsperada"> </p-inputNumber>
+            <label class="block font-bold mb-2" for="currency-us">Precio total</label>
+            <p-inputNumber   inputId="currency-us" mode="currency" formControlName="costoTotalProducto" currency="USD" locale="en-US"> </p-inputNumber>
+            <label for="cantidadtotal">Cantidad de unidades</label>
+            <p-inputNumber inputId="integeronly" formControlName="cantidadTotalProducto"> </p-inputNumber>
+            <button type="submit" class="btn-calcular">Calcular Ganancia</button>
           </form>
-          <div class="container-precio-producto">
-            <h4>El precio que deberias vender es de: {{precioProducto}}</h4>
-          </div>
+          
         </div>
       </div>
     </div>
