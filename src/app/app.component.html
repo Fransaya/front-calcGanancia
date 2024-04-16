@@ -6,9 +6,9 @@
       </div>
       <div class="containers-forms">
         <div class="form-envio">
-          <form  [formGroup]="formEnvio" (submit)="calcGastoEnvio()" class="form-envio">
+          <form [formGroup]="formEnvio" (submit)="calcGastoEnvio()" class="form-envio">
             <label class="block font-bold mb-2" for="currency-us">Costo de envio</label>
-            <p-inputNumber   inputId="currency-us" mode="currency" formControlName="costoTotalEnvios" currency="USD" locale="en-US"> </p-inputNumber>
+            <p-inputNumber inputId="currency-us" mode="currency" formControlName="costoTotalEnvios" currency="USD" locale="en-US"></p-inputNumber>
             <label for="totalProductos">Total de unidades</label>
             <input type="number" name="totalUnidades" id="totalUnidades" formControlName="cantidadTotalProductos" class="totalUnidades" placeholder="Ingrese el total de unidades recibidas">
             <button class="btn-calcular" type="submit">Calcular</button>
@@ -17,15 +17,14 @@
 
         <div class="form-ganancia">
           <form [formGroup]="formGanancia" (submit)="calcGanancia()">
-            <label for="ganaciaEsperada">Ganancia esperada </label>
-            <p-inputNumber  inputId="percent" prefix="%" formControlName="gananciaEsperada"> </p-inputNumber>
+            <label for="gananciaEsperada">Ganancia esperada </label>
+            <p-inputNumber inputId="percent" prefix="%" formControlName="gananciaEsperada"></p-inputNumber>
             <label class="block font-bold mb-2" for="currency-us">Precio total</label>
-            <p-inputNumber   inputId="currency-us" mode="currency" formControlName="costoTotalProducto" currency="USD" locale="en-US"> </p-inputNumber>
+            <p-inputNumber inputId="currency-us" mode="currency" formControlName="costoTotalProducto" currency="USD" locale="en-US"></p-inputNumber>
             <label for="cantidadtotal">Cantidad de unidades</label>
-            <p-inputNumber inputId="integeronly" formControlName="cantidadTotalProducto"> </p-inputNumber>
+            <p-inputNumber inputId="integeronly" formControlName="cantidadTotalProducto"></p-inputNumber>
             <button type="submit" class="btn-calcular">Calcular Ganancia</button>
           </form>
-          
         </div>
       </div>
     </div>
